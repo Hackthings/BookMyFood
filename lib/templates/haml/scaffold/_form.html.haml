@@ -1,0 +1,32 @@
+= form_with(model: object, remote: true) do |f|
+  - if object.errors.any?
+    #error_explanation
+      %p= "#{pluralize(object.errors.count, "error")} prohibited this <%= singular_table_name.titleize %> from being saved:"
+      %ul
+        - object.errors.full_messages.each do |message|
+          %li= message
+<%- attributes = singular_table_name.classify.constantize.columns_hash.except('id', 'created_at', 'updated_at') %><% attributes.values.each do |attribute| -%>
+  .row
+  <%- if attribute.name == 'password' -%>
+    = f.label :password
+    = f.password_field :password
+
+  .row
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  <%- else -%>
+    = f.label :<%= attribute.name %>
+    <%- if attribute.name =~ /_id$/ -%>
+    = f.collection_select :<%= attribute.name %>, <%= attribute.name.classify.gsub(/Id$/, '') %>.all, :id, :name
+    <%- elsif attribute.name =~ /amount/ -%>
+    = f.<%= field_type(attribute.name, attribute.type) %> :<%= attribute.name %>, currency: '&#8377;' # TODO: Check if `id` passed is correctly used
+    <%- elsif attribute.type =~ /datetime|timestamp/ -%>
+    .input-group
+      = f.<%= field_type(attribute.name, attribute.type) %> :<%= attribute.name %>, {order: [:day, :month, :year], date_separator: ' / '}, class: 'input-group-field small-2'
+    <%- else -%>
+    = f.<%= field_type(attribute.name, attribute.type) %> :<%= attribute.name %>
+    <%- end -%>
+  <%- end -%>
+<%- end -%>
+  = render 'shared/timestamps', f: f # TODO: Add this partial to generator
+  = render 'shared/reveal_footer', f: f # TODO: Add this partial to generator

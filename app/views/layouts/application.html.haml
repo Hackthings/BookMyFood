@@ -1,0 +1,28 @@
+!!! 5
+%html{ :lang => "en" }
+  %head
+    %meta{ :charset => "utf-8" }
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : 'FoodDesk'
+
+    = csrf_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true
+    %link{:href => "/manifest.json", :rel => "manifest"}
+
+  %body
+    .off-canvas-wrapper
+      = render 'layouts/titlebar'
+      = render 'layouts/top_navigation'
+      - if user_signed_in?
+        = render 'layouts/left_navigation'
+      .off-canvas-content{"data-off-canvas-content" => ""}
+        .grid-container.margin-top-1
+          = flash_messages
+          = yield
+          %div.scroll-to-top
+            Scroll to Top
+          = render 'layouts/reveal'
+        = render 'layouts/footer'

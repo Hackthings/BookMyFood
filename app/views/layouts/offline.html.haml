@@ -1,0 +1,28 @@
+!!! 5
+%html{ :lang => "en" }
+  %head
+    %meta{ :charset => "utf-8" }
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : 'FoodDesk(OFFLINE)'
+
+    = csrf_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "/manifest.json", :rel => "manifest"}
+
+  %body
+    .off-canvas-wrapper
+      = render 'layouts/titlebar'
+      = render 'layouts/left_sidebar'
+      = render 'layouts/right_sidebar'
+      .off-canvas-content{"data-off-canvas-content" => ""}
+        = # TODO : Create class and styling for .container and use instead of .row
+        .row
+          = flash_messages
+          = yield
+          %div.scroll-to-top
+            Scroll to Top
+          = render 'layouts/reveal'
+        = render 'layouts/footer'

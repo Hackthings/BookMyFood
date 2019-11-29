@@ -1,0 +1,10 @@
+%ul.menu{ class: vertical ? 'vertical' : '' }
+  // Access for all
+  = render 'devise/menu/registration_items'
+  %li= link_to 'Dashboard', root_path, class: 'text-default'
+  // Access for Admins only
+  - if current_user.admin?
+    - ['users'].each do |model|
+      %li
+        = link_to model.titleize, send("#{model}_path"), class: 'text-default'
+  = render 'devise/menu/login_items'

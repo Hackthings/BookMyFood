@@ -1,0 +1,7 @@
+.title-bar{'data-responsive-toggle': 'responsive-menu', 'data-hide-for': 'medium'}
+  - if user_signed_in?
+    %button.menu-icon{"data-open" => "offCanvasLeft", :type => "button"}
+  .title-bar-title
+    = link_to root_path, class: 'text-default' do
+      = image_tag 'logo.png', class: 'logo'
+      = 'FoodDesk'
