@@ -4,7 +4,6 @@
       %li
         = link_to root_path, class: 'text-default font-bold' do
           = image_tag 'logo.png', class: 'logo'
-          = 'FoodDesk'
   .top-bar-right
     - if user_signed_in?
       = render 'layouts/menus', vertical: false

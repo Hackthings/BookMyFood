@@ -1,6 +1,6 @@
 <h1 style="text-align: center; font-size: 100px;">
-  <img src="app/assets/images/logo.png" alt="FoodDesk" width=100px height=100px>
-  FoodDesk
+  <img src="app/assets/images/logo.png" alt="BookMyFood" width=100px height=100px>
+  BookMyFood
 </h1>
 
 This README would normally document whatever steps are necessary to get the

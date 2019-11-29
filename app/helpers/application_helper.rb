@@ -47,7 +47,7 @@ module ApplicationHelper
   end
 
   def invite_for_registration_via_whatsapp
-    url = build_whatsapp_url("Hey Buddy! Join me on FoodDesk, a Food Ordering app. #{new_user_registration_url}")
+    url = build_whatsapp_url("Hey Buddy! Join me on BookMyFood, a Food Ordering app. #{new_user_registration_url}")
     link_to 'Invite via WhatsApp', url, class: 'button success hollow'
   end
 
