@@ -1,0 +1,22 @@
+= form_with(model: object, remote: true) do |f|
+  - if object.errors.any?
+    #error_explanation
+      %p= "#{pluralize(object.errors.count, "error")} prohibited this Food from being saved:"
+      %ul
+        - object.errors.full_messages.each do |message|
+          %li= message
+  .row
+    = f.label :name
+    = f.text_field :name
+  .row
+    = f.label :price
+    = f.text_field :price
+  .row
+    = f.label :available
+    = f.number_field :available
+  .row
+    = f.label :image
+    = f.file_field :image
+    
+  = render 'shared/timestamps', f: f # TODO: Add this partial to generator
+  = render 'shared/reveal_footer', f: f # TODO: Add this partial to generator
