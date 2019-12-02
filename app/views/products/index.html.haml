@@ -23,7 +23,7 @@
           %td= product.quantity
           %td= product.unit
           %td= product.price
-          %td= product.image ? image_tag(product.image, class: 'thumbnail in-table') : 'No preview available'
+          %td= product.image.attached? ? image_tag(product.image, class: 'thumbnail in-table') : 'No preview available'
           %td= product.availability_label
           %td
             .button-group
