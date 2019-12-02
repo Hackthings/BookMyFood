@@ -3,6 +3,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable, :lockable,
          :recoverable, :rememberable, :validatable, :trackable,
          :omniauthable, :omniauth_providers => [:google_oauth2]
+  enum role: { employee: 0, admin: 1, cs_team: 2, canteen_team: 3, chef: 4 }
+
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :employee
+  end
 
   def self.from_omniauth(auth)
     user = where(email: auth.info.email).first_or_initialize
