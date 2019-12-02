@@ -24,7 +24,7 @@
           %td= product.unit
           %td= product.price
           %td= image_tag(product.image, class: 'thumbnail in-table')
-          %td= product.availability
+          %td= product.availability_label
           %td
             .button-group
               = link_to 'Show', 'javascript:void(0)', class: 'button success', data: {open: 'ajax-reveal', url: product_path(product)}
