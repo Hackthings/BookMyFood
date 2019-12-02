@@ -16,7 +16,7 @@
     = f.collection_select :unit, Product.units, :first, :first
   .row
     = f.label :price
-    = f.text_field :price
+    = f.number_field :price
   .row
     = f.label :availability
     = f.check_box :availability
