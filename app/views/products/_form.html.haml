@@ -13,7 +13,7 @@
     = f.number_field :quantity
   .row
     = f.label :unit
-    = f.collection_select :unit, Product.units.keys
+    = f.collection_select :unit, Product.units, :first, :first
   .row
     = f.label :price
     = f.text_field :price
