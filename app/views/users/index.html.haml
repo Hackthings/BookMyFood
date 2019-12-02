@@ -8,6 +8,7 @@
       %tr
         %th Id
         %th Email
+        %th Role
         %th Encrypted password
         %th Reset password token
         %th Reset password sent at
@@ -33,6 +34,7 @@
         %tr
           %td= user.id
           %td= user.email
+          %td= user.role
           %td= user.encrypted_password
           %td= user.reset_password_token
           %td= user.reset_password_sent_at

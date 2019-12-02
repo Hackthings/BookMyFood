@@ -9,6 +9,9 @@
     = f.label :email
     = f.email_field :email
   .row
+    = f.label :role
+    = f.collection_select :role, User.roles, :first, :first
+  .row
     = f.label :encrypted_password
     = f.text_field :encrypted_password
   .row

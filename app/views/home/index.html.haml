@@ -1,1 +1,18 @@
-%h1 It's an empty home. There is nothing here.
+
+
+.grid-container
+  .grid-x.grid-margin-x.small-up-2.medium-up-3
+    - @products.each do |p|
+      .cell
+        .card
+          = image_tag p.image.attached? ? p.image : 'logo.png', class: :thumbnail
+          .card-section
+          %h4
+            = p.name
+            %p= p.price
+            .input-group
+              .input-group-button
+                = link_to '-', 'javascript:void(0)', class: 'button hollow'
+              = text_field_tag :quantity, 0, class: 'input-group-field'
+              .input-group-button
+                = link_to '+', 'javascript:void(0)', class: 'button hollow'
