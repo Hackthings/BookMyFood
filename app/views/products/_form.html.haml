@@ -1,7 +1,7 @@
 = form_with(model: object, remote: true) do |f|
   - if object.errors.any?
     #error_explanation
-      %p= "#{pluralize(object.errors.count, "error")} prohibited this Food from being saved:"
+      %p= "#{pluralize(object.errors.count, "error")} prohibited this Product from being saved:"
       %ul
         - object.errors.full_messages.each do |message|
           %li= message

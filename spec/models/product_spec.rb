@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Food, type: :model do
-  let(:food) { FactoryGirl.create(:food) }
+RSpec.describe Product, type: :model do
+  let(:product) { FactoryGirl.create(:product) }
 
   it "has a valid factory" do
-    expect(food).to be_valid
+    expect(product).to be_valid
   end
 
   describe "Associations" do
