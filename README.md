@@ -31,8 +31,8 @@ ruby-2.4.0
 
 TODOs
 
-* Remove traces of expense tracker and money bee
-* Change logo
+* https://github.com/howardmann/Tutorials/blob/master/Rails_Shopping_Cart.md
+* 
 
 FUTURE SCOPE
 
