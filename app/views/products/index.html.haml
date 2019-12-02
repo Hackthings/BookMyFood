@@ -8,9 +8,11 @@
       %tr
         %th Id
         %th Name
+        %th Quantity
+        %th Unit
         %th Price
         %th Image
-        %th Available
+        %th Availability
         %th Actions
 
     %tbody
@@ -18,9 +20,11 @@
         %tr
           %td= product.id
           %td= product.name
+          %td= product.quantity
+          %td= product.unit
           %td= product.price
           %td= image_tag(product.image, class: 'thumbnail in-table')
-          %td= product.available
+          %td= product.availability
           %td
             .button-group
               = link_to 'Show', 'javascript:void(0)', class: 'button success', data: {open: 'ajax-reveal', url: product_path(product)}

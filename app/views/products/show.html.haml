@@ -5,11 +5,17 @@
   %strong Name:
   = @product.name
 .row
+  %strong Quantity:
+  = @product.quantity
+.row
+  %strong Unit:
+  = @product.unit
+.row
   %strong Price:
   = @product.price
 .row
-  %strong Available:
-  = @product.available
+  %strong Availability:
+  = @product.availability? ? 'Available' : 'Out of Stock'
 .row
   = link_to 'Edit', 'javascript:void(0)', class: 'button primary', data: {open: 'ajax-reveal', url: edit_product_path(@product)}
   = close_reveal_button # TODO: Add this method to be copied via generator
