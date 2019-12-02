@@ -1,0 +1,15 @@
+.row
+  %strong Id:
+  = @order_item.id
+.row
+  %strong Orders:
+  = @order_item.orders.name
+.row
+  %strong Products:
+  = @order_item.products.name
+.row
+  %strong Quantity:
+  = @order_item.quantity
+.row
+  = link_to 'Edit', 'javascript:void(0)', class: 'button primary', data: {open: 'ajax-reveal', url: edit_order_item_path(@order_item)}
+  = close_reveal_button # TODO: Add this method to be copied via generator

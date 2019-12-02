@@ -17,7 +17,7 @@ module BookMyFood
     config.generators do |g|
       # g.orm false
       g.assets false
-      # g.test_framework  false
+      g.test_framework  false
     end
   end
 end

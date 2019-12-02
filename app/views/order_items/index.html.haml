@@ -1,0 +1,26 @@
+%h1
+  Order Items
+  = link_to 'Add New Order Item', 'javascript:void(0)', class: 'button primary float-right', data: {open: 'ajax-reveal', url: new_order_item_path}
+
+.table-scroll
+  %table.striped.hover.table-striped.stack
+    %thead
+      %tr
+        %th Id
+        %th Orders
+        %th Products
+        %th Quantity
+        %th Actions
+
+    %tbody
+      - @order_items.each do |order_item|
+        %tr
+          %td= order_item.id
+          %td= order_item.orders.name
+          %td= order_item.products.name
+          %td= order_item.quantity
+          %td
+            .button-group
+              = link_to 'Show', 'javascript:void(0)', class: 'button success', data: {open: 'ajax-reveal', url: order_item_path(order_item)}
+              = link_to 'Edit', 'javascript:void(0)', class: 'button warning', data: {open: 'ajax-reveal', url: edit_order_item_path(order_item)}
+              = link_to 'Delete', order_item, method: :delete, data: { confirm: 'Are you sure you want to delete this Order Item?' }, class: 'button alert'
