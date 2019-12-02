@@ -1,0 +1,21 @@
+= form_with(model: object, remote: true) do |f|
+  - if object.errors.any?
+    #error_explanation
+      %p= "#{pluralize(object.errors.count, "error")} prohibited this Order from being saved:"
+      %ul
+        - object.errors.full_messages.each do |message|
+          %li= message
+  .row
+    = f.label :user_id
+    = f.collection_select :user_id, User.all, :id, :name
+  .row
+    = f.label :payment_mode
+    = f.number_field :payment_mode
+  .row
+    = f.label :status
+    = f.number_field :status
+  .row
+    = f.label :total
+    = f.text_field :total
+  = render 'shared/timestamps', f: f # TODO: Add this partial to generator
+  = render 'shared/reveal_footer', f: f # TODO: Add this partial to generator
