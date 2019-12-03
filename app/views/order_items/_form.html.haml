@@ -6,11 +6,11 @@
         - object.errors.full_messages.each do |message|
           %li= message
   .row
-    = f.label :orders_id
-    = f.collection_select :orders_id, Orders.all, :id, :name
+    = f.label :order_id
+    = f.collection_select :order_id, Order.all, :id, :id
   .row
-    = f.label :products_id
-    = f.collection_select :products_id, Products.all, :id, :name
+    = f.label :product_id
+    = f.collection_select :product_id, Product.all, :id, :name
   .row
     = f.label :quantity
     = f.number_field :quantity

@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 2019_12_02_193709) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.bigint "orders_id"
-    t.bigint "products_id"
+    t.bigint "order_id"
+    t.bigint "product_id"
     t.integer "quantity", default: 1, null: false
-    t.index ["orders_id"], name: "index_order_items_on_orders_id"
-    t.index ["products_id"], name: "index_order_items_on_products_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_193709) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "order_items", "orders", column: "orders_id"
-  add_foreign_key "order_items", "products", column: "products_id"
+  add_foreign_key "order_items", "orders", column: "order_id"
+  add_foreign_key "order_items", "products", column: "product_id"
   add_foreign_key "orders", "users"
 end

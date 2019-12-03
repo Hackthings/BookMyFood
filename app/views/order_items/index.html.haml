@@ -7,8 +7,8 @@
     %thead
       %tr
         %th Id
-        %th Orders
-        %th Products
+        %th Order
+        %th Product
         %th Quantity
         %th Actions
 
@@ -16,8 +16,8 @@
       - @order_items.each do |order_item|
         %tr
           %td= order_item.id
-          %td= order_item.orders.name
-          %td= order_item.products.name
+          %td= order_item.order.id
+          %td= order_item.product.name
           %td= order_item.quantity
           %td
             .button-group
