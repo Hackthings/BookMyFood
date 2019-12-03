@@ -7,9 +7,14 @@ class User < ApplicationRecord
   has_many :orders
 
   after_initialize :set_default_role, :if => :new_record?
+  before_create :set_name
 
   def set_default_role
     self.role ||= :employee
+  end
+
+  def set_name
+    self.name ||= self.email.gsub(/@msci.com/, '').titleize.gsub('.', ' ')
   end
 
   def self.from_omniauth(auth)
