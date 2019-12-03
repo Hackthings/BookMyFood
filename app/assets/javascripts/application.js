@@ -93,4 +93,16 @@ $(document).on('turbolinks:load', function() {
     $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
   }
   $('.scroll-to-top').on('click', scrollToTop);
+
+  $('body').on('click', '.plus-minus-btn .increment', function(e) {
+    var $input = $(this).parents('.input-group').find('input[type=text]');
+    var val = parseInt($input.val(), 10);
+    !isNaN(val) ? $input.val(val + 1) : $input.val(0);
+  });
+
+  $('body').on('click', '.plus-minus-btn .decrement', function(e) {
+    var $input = $(this).parents('.input-group').find('input[type=text]');
+    var val = parseInt($input.val(), 10);
+    (!isNaN(val) && val > 0) ? $input.val(val - 1) : $input.val(0);
+  });
 });
