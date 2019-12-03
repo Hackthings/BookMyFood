@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable,
          :omniauthable, :omniauth_providers => [:google_oauth2]
   enum role: { employee: 0, admin: 1, cs_team: 2, canteen_team: 3, chef: 4 }
+  has_many :orders
 
   after_initialize :set_default_role, :if => :new_record?
 
