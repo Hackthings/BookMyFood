@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_193709) do
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id"
     t.bigint "product_id"
-    t.integer "quantity", default: 1, null: false
+    t.integer "quantity", default: 0, null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
