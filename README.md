@@ -2,6 +2,7 @@
   <img src="app/assets/images/logo.png" alt="BookMyFood" width=100px height=100px>
   BookMyFood
 </h1>
+THIS IS A SAMPLE APPLICATION FOR MSCI HACKATHON 2019
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
