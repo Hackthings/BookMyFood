@@ -8,12 +8,12 @@
             %h4
               = p.name
             %span.help-text
-              = p.price
-            .grid-x.grid-margin-x
-              .cell.small-6
+              = "#{'&#8377;'.html_safe} #{p.price}"
+            .grid-x
+              .cell.small-5
                 %label.text-left.middle
                   = "#{p.quantity} #{p.unit}"
-              .cell.small-6
+              .cell.small-7
                 .input-group.float-right
                   .input-group-button.plus-minus-btn
                     = link_to '-', 'javascript:void(0)', class: 'button hollow'
