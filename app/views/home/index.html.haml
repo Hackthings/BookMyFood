@@ -1,23 +1,28 @@
-.grid-container
-  .grid-x.grid-margin-x.small-up-2.medium-up-3.large-up-4
-    - @products.each do |p|
-      .cell
-        .card
-          = image_tag p.image.attached? ? p.image : 'logo.png', class: :thumbnail
-          .card-section
-            %h4
-              = p.name
-            %span.help-text
-              = '&#8377;'.html_safe
-              = p.price
-            .grid-x
-              .cell.small-5
-                %label.text-left.middle
-                  = "#{p.quantity} #{p.unit}"
-              .cell.small-7
-                .input-group.float-right
-                  .input-group-button.plus-minus-btn
-                    = link_to '-', 'javascript:void(0)', class: 'button hollow decrement'
-                  = text_field_tag :quantity, 0, class: 'input-group-field'
-                  .input-group-button.plus-minus-btn
-                    = link_to '+', 'javascript:void(0)', class: 'button hollow increment'
+- form_for @order do |f|
+  .grid-container
+    .grid-x.grid-margin-x.small-up-2.medium-up-3.large-up-4
+      - @products.each do |p|
+        - f.fields_for :order_items do |oi|
+          .cell
+            .card
+              = image_tag p.image.attached? ? p.image : 'logo.png', class: :thumbnail
+              .card-section
+                %h4
+                  = p.name
+                %span.help-text
+                  = '&#8377;'.html_safe
+                  = p.price
+                .grid-x
+                  .cell.small-5
+                    %label.text-left.middle
+                      = "#{p.quantity} #{p.unit}"
+                  .cell.small-7
+                    .input-group.float-right
+                      .input-group-button.plus-minus-btn
+                        = link_to '-', 'javascript:void(0)', class: 'button hollow decrement'
+                      = oi.text_field :quantity, class: 'input-group-field'
+                      = oi.hidden_field :product_id, value: p.id
+                      .input-group-button.plus-minus-btn
+                        = link_to '+', 'javascript:void(0)', class: 'button hollow increment'
+
+  = f.submit 'Place Order'
