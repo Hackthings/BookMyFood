@@ -4,6 +4,6 @@ class Order < ApplicationRecord
   has_many :products, through: :order_items
   accepts_nested_attributes_for :order_items, allow_destroy: true, reject_if: proc { |oi|
     puts oi.inspect
-    oi[:quantity].zero?
+    oi[:quantity] == '0'
   }
 end
